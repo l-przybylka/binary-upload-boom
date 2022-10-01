@@ -2,13 +2,14 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
-const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
-const methodOverride = require("method-override");
-const flash = require("express-flash");
-const logger = require("morgan");
-const connectDB = require("./config/database");
-const mainRoutes = require("./routes/main");
+const session = require("express-session"); // store session info
+const MongoStore = require("connect-mongo")(session); // stores session in mongo?
+const methodOverride = require("method-override"); // overrides method post to put or delete if needed
+const flash = require("express-flash"); // flas messages for users
+const logger = require("morgan"); // for dev purposes logs info and responses from the server
+const connectDB = require("./config/database"); // connects to mongo
+// routes
+const mainRoutes = require("./routes/main"); 
 const postRoutes = require("./routes/posts");
 
 //Use .env file in config folder
