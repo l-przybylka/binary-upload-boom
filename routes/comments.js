@@ -4,7 +4,7 @@ const commentsController = require("../controllers/comments");
 
 //Comments Routes - simplified for now
 
-router.post("/createComment", commentsController.createPost);
+router.post("/createComment/:id", commentsController.createComment);
 
 // router.put("/likeComment/:id", commentsController.likePost);
 
