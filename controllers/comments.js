@@ -29,18 +29,16 @@ module.exports = {
       console.log(err);
     }
   },
-  // deletePost: async (req, res) => {
-  //   try {
-  //     // Find post by id
-  //     let post = await Post.findById({ _id: req.params.id });
-  //     // Delete image from cloudinary
-  //     await cloudinary.uploader.destroy(post.cloudinaryId);
-  //     // Delete post from db
-  //     await Post.remove({ _id: req.params.id });
-  //     console.log("Deleted Post");
-  //     res.redirect("/profile");
-  //   } catch (err) {
-  //     res.redirect("/profile");
-  //   }
-  // },
+  deleteComment: async (req, res) => {
+    try {
+      // Find post by id
+      let comment = await Comment.findById({ _id: req.params.id });
+      // Delete post from db
+      await Comment.remove({ _id: req.params.id });
+      console.log("Deleted comment");
+      res.redirect(`/post/${comment.post}`);
+    } catch (err) {
+      res.redirect(`/post/${comment.post}`);
+    }
+  },
 };
